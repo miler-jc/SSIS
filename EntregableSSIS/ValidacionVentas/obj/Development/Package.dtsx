@@ -1,0 +1,2578 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/1/2026 9:23:20 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MILER"
+  DTS:CreatorName="MILER\miler"
+  DTS:DTSID="{7488EF05-1934-4EA0-90E0-A2ECC4C9DA0D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="10250"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{5D73EF8E-FDDA-4B18-AA77-EB8FACCBEE2D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MILER.BD_NET]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{46DE8E8D-85CD-469F-8F29-EB831E9D6760}"
+      DTS:ObjectName="MILER.BD_NET">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[User::vBaseDato]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[User::vServer]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MILER;Initial Catalog=BD_NET;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{46DE8E8D-85CD-469F-8F29-EB831E9D6760}MILER.BD_NET;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Revisar csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="revisar"
+      DTS:DTSID="{58D092FF-0757-4E9B-97B6-8436DB3CD1EB}"
+      DTS:ObjectName="Revisar csv">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::vRutaOutput]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="10250"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\miler\Downloads\EntregableETL\Revisar.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IdVenta"
+              DTS:DTSID="{FE3A3A7D-AD2B-4013-9D74-E7A14ED6BF23}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FechaVenta"
+              DTS:DTSID="{CBE55FDC-367E-46D9-8E77-8EC413839358}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IdCliente"
+              DTS:DTSID="{8C9648A1-3F03-4617-A4A1-131181BF8D4A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Producto"
+              DTS:DTSID="{E04D8DC0-A7B3-4F83-A2CC-98A8E102B05D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cantidad"
+              DTS:DTSID="{DDB0C39B-90C4-4B06-B956-BA55385CA680}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="12"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PrecioUnitario"
+              DTS:DTSID="{71D28275-8932-445B-8BEA-C148CE5253C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Estado"
+              DTS:DTSID="{730B41C6-225D-4583-B01D-E9F3E04AFD15}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="131"
+              DTS:DataPrecision="29"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ImporteTotal"
+              DTS:DTSID="{BDE1242A-72D1-4F27-B2F1-5CFEC04AE7C7}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Ventas.csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Venta"
+      DTS:DTSID="{93FBB7E3-7262-47B3-8B7A-5E046FA5A121}"
+      DTS:ObjectName="Ventas.csv">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::vRutaInput]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="10250"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\miler\Downloads\EntregableETL\Ventas.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IdVenta"
+              DTS:DTSID="{C8E478AB-F9DC-49AE-AFA7-BCADD6D0C665}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FechaVenta"
+              DTS:DTSID="{2FCD106C-BA59-4329-85EC-1354F2426708}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IdCliente"
+              DTS:DTSID="{795AFBD3-9877-4813-A472-FDBA010E383E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Producto"
+              DTS:DTSID="{0C39828D-91DC-45DD-8B05-BA9E5DC32E52}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cantidad"
+              DTS:DTSID="{9E21788F-A1B2-4F82-B1F4-4A6D22395779}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="131"
+              DTS:DataPrecision="12"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PrecioUnitario"
+              DTS:DTSID="{67A7AD7C-6386-4970-BAAB-BE474F8B3A0A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Estado"
+              DTS:DTSID="{9D653FDB-A844-48C6-ADAE-C0F870607FED}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{09B29564-09FF-43AB-AEA7-241ABE8D11F6}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::vBaseDato]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vBaseDato">
+      <DTS:VariableValue
+        DTS:DataType="8">BD_NET</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0250BDD1-744F-4D1C-B684-A9234A155577}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::vRutaInput]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vRutaInput">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\miler\Downloads\EntregableETL\Ventas.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AC0E1E1E-334B-4008-87F0-4F34CC7DB346}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::vRutaOutput]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vRutaOutput">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\miler\Downloads\EntregableETL\Revisar.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A6DFDBC0-15FB-487E-9A04-0107FF50C346}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::vServer]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="vServer">
+      <DTS:VariableValue
+        DTS:DataType="8">MILER</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cargar Ventas csv"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D8C4974F-10B0-478F-BA91-0C48442D8762}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cargar Ventas csv"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Cargar Ventas csv\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Cargar Ventas csv\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Conditional Split.Inputs[Conditional Split Input].Columns[Cantidad]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Cantidad]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Conditional Split.Inputs[Conditional Split Input].Columns[PrecioUnitario]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioUnitario"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[PrecioUnitario]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Conditional Split.Inputs[Conditional Split Input].Columns[Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Estado"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Estado]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Ventas csv\Conditional Split.Outputs[valido]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="valido"
+                  synchronousInputId="Package\Cargar Ventas csv\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Cantidad]} &gt; 0 &amp;&amp; #{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[PrecioUnitario]} &gt; 0 &amp;&amp; #{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Estado]} == "APROBADA"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Cantidad &gt; 0 &amp;&amp; PrecioUnitario &gt; 0 &amp;&amp; Estado == "APROBADA"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar Ventas csv\Conditional Split.Outputs[no_valido]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="no_valido"
+                  synchronousInputId="Package\Cargar Ventas csv\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">!(#{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Cantidad]} &gt; 0 &amp;&amp; #{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[PrecioUnitario]} &gt; 0 &amp;&amp; #{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Estado]} == "APROBADA")</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!(Cantidad &gt; 0 &amp;&amp; PrecioUnitario &gt; 0 &amp;&amp; Estado == "APROBADA")</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar Ventas csv\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Cargar Ventas csv\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar Ventas csv\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Cargar Ventas csv\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Ventas csv\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Cargar Ventas csv\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Data Conversion.Inputs[Data Conversion Input].Columns[ImporteTotal]"
+                      cachedDataType="numeric"
+                      cachedName="ImporteTotal"
+                      cachedPrecision="23"
+                      cachedScale="2"
+                      lineageId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Output].Columns[ImporteTotal]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Data Conversion.Inputs[Data Conversion Input].Columns[IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="IdCliente"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdCliente]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Data Conversion.Inputs[Data Conversion Input].Columns[Producto]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Producto"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Producto]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Data Conversion.Inputs[Data Conversion Input].Columns[Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Estado"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Estado]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Data Conversion.Inputs[Data Conversion Input].Columns[FechaVenta]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FechaVenta"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[FechaVenta]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Cargar Ventas csv\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_ImporteTotal]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_ImporteTotal]"
+                      name="Convert_ImporteTotal"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Output].Columns[ImporteTotal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_IdCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_IdCliente]"
+                      name="Convert_IdCliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdCliente]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_Producto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_Producto]"
+                      name="Convert_Producto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Producto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_Estado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_Estado]"
+                      name="Convert_Estado"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Estado]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_FechaVenta]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_FechaVenta]"
+                      name="Convert_FechaVenta"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[FechaVenta]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Cargar Ventas csv\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Ventas csv\IMPORTE TOTAL"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="IMPORTE TOTAL"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Cargar Ventas csv\IMPORTE TOTAL.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\IMPORTE TOTAL.Inputs[Derived Column Input].Columns[Cantidad]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Cantidad]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\IMPORTE TOTAL.Inputs[Derived Column Input].Columns[PrecioUnitario]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioUnitario"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[PrecioUnitario]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\IMPORTE TOTAL.Inputs[Derived Column Input].Columns[FechaVenta]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FechaVenta"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[FechaVenta]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACE](#{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[FechaVenta]},"/","-")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(FechaVenta,"/","-")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Cargar Ventas csv\IMPORTE TOTAL.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Output].Columns[ImporteTotal]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Output].Columns[ImporteTotal]"
+                      name="ImporteTotal"
+                      precision="29"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Cantidad]} * #{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[PrecioUnitario]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">Cantidad * PrecioUnitario</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Cargar Ventas csv\IMPORTE TOTAL.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Ventas csv\LOG ERROR"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="LOG ERROR"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[LOG]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Ventas csv\LOG ERROR.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MILER.BD_NET]"
+                  connectionManagerRefId="Package.ConnectionManagers[MILER.BD_NET]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].Columns[IdVenta]"
+                      cachedDataType="i4"
+                      cachedName="IdVenta"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[IdVenta]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdVenta]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].Columns[FechaVenta]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FechaVenta"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[FechaVenta]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[FechaVenta]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].Columns[IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="IdCliente"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[IdCliente]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdCliente]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].Columns[Producto]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Producto"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[Producto]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Producto]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].Columns[Cantidad]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[Cantidad]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Cantidad]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].Columns[PrecioUnitario]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioUnitario"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[PrecioUnitario]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[PrecioUnitario]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].Columns[Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Estado"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[Estado]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Estado]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].Columns[ImporteTotal]"
+                      cachedDataType="numeric"
+                      cachedName="ImporteTotal"
+                      cachedPrecision="29"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[ImporteTotal]"
+                      lineageId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Output].Columns[ImporteTotal]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Cargar Ventas csv\VENTAS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Cargar Ventas csv\VENTAS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[IdVenta]"
+                      dataType="i4"
+                      name="IdVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[FechaVenta]"
+                      dataType="wstr"
+                      length="50"
+                      name="FechaVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[IdCliente]"
+                      dataType="wstr"
+                      length="10"
+                      name="IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[Producto]"
+                      dataType="wstr"
+                      length="50"
+                      name="Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[Cantidad]"
+                      dataType="i4"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[PrecioUnitario]"
+                      dataType="numeric"
+                      name="PrecioUnitario"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="20"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[ImporteTotal]"
+                      dataType="numeric"
+                      name="ImporteTotal"
+                      precision="29"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Ventas csv\LOG ERROR.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\LOG ERROR.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\LOG ERROR.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\LOG ERROR.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Ventas csv\MATCH ID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="MATCH ID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Cliente]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Cliente]) [refTable]
+where [refTable].[IdCliente] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IdCliente" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Email" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Telefono" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdCliente]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Ventas csv\MATCH ID.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MILER.BD_NET]"
+                  connectionManagerRefId="Package.ConnectionManagers[MILER.BD_NET]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar Ventas csv\MATCH ID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\MATCH ID.Inputs[Lookup Input].Columns[IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="IdCliente"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdCliente]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">IdCliente</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Ventas csv\MATCH ID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Cargar Ventas csv\MATCH ID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar Ventas csv\MATCH ID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Cargar Ventas csv\MATCH ID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar Ventas csv\MATCH ID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Cargar Ventas csv\MATCH ID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\MATCH ID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\MATCH ID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\MATCH ID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\MATCH ID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Ventas csv\RECHAZADOS"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="RECHAZADOS"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Cargar Ventas csv\RECHAZADOS.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\RECHAZADOS.Inputs[Derived Column Input].Columns[Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Estado"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Estado]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"RECHAZADO"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"RECHAZADO"</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Ventas csv\RECHAZADOS.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Cargar Ventas csv\RECHAZADOS.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Cargar Ventas csv\RECHAZADOS.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Cargar Ventas csv\RECHAZADOS.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\RECHAZADOS.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\RECHAZADOS.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\RECHAZADOS.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\RECHAZADOS.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Ventas csv\Revisar csv"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="10250"
+              name="Revisar csv"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Ventas csv\Revisar csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Revisar csv]"
+                  connectionManagerRefId="Package.ConnectionManagers[Revisar csv]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].Columns[IdVenta]"
+                      cachedDataType="i4"
+                      cachedName="IdVenta"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[IdVenta]"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[IdVenta]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].Columns[FechaVenta]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FechaVenta"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[FechaVenta]"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[FechaVenta]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].Columns[IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="IdCliente"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[IdCliente]"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[IdCliente]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].Columns[Producto]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Producto"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[Producto]"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Producto]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].Columns[Cantidad]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[Cantidad]"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Cantidad]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].Columns[PrecioUnitario]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioUnitario"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[PrecioUnitario]"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[PrecioUnitario]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].Columns[Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Estado"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[Estado]"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Estado]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].Columns[ImporteTotal]"
+                      cachedDataType="numeric"
+                      cachedName="ImporteTotal"
+                      cachedPrecision="29"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[ImporteTotal]"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[ImporteTotal]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[IdVenta]"
+                      dataType="i4"
+                      name="IdVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[FechaVenta]"
+                      dataType="wstr"
+                      length="50"
+                      name="FechaVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[IdCliente]"
+                      dataType="wstr"
+                      length="10"
+                      name="IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[Producto]"
+                      dataType="wstr"
+                      length="50"
+                      name="Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[Cantidad]"
+                      dataType="i4"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[PrecioUnitario]"
+                      dataType="numeric"
+                      name="PrecioUnitario"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="20"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input].ExternalColumns[ImporteTotal]"
+                      dataType="numeric"
+                      name="ImporteTotal"
+                      precision="29"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Cargar Ventas csv\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[IdVenta]"
+                      cachedDataType="i4"
+                      cachedName="IdVenta"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdVenta]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[IdVenta]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[FechaVenta]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FechaVenta"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[FechaVenta]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[FechaVenta]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="IdCliente"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdCliente]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[IdCliente]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[Producto]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Producto"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[Cantidad]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Cantidad]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Cantidad]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[PrecioUnitario]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioUnitario"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[PrecioUnitario]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[PrecioUnitario]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Estado"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Estado]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Estado]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[ImporteTotal]"
+                      cachedDataType="numeric"
+                      cachedName="ImporteTotal"
+                      cachedPrecision="23"
+                      cachedScale="2"
+                      lineageId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Output].Columns[ImporteTotal]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[ImporteTotal]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[Convert_ImporteTotal]"
+                      cachedDataType="numeric"
+                      cachedName="Convert_ImporteTotal"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_ImporteTotal]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_ImporteTotal]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[Convert_IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Convert_IdCliente"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_IdCliente]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_IdCliente]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[Convert_Producto]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Convert_Producto"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_Producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_Producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[Convert_Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Convert_Estado"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_Estado]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_Estado]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1].Columns[Convert_FechaVenta]"
+                      cachedDataType="date"
+                      cachedName="Convert_FechaVenta"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_FechaVenta]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_FechaVenta]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 2].Columns[IdVenta]"
+                      cachedDataType="i4"
+                      cachedName="IdVenta"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdVenta]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[IdVenta]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 2].Columns[FechaVenta]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FechaVenta"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[FechaVenta]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[FechaVenta]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 2].Columns[IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="IdCliente"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdCliente]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[IdCliente]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 2].Columns[Producto]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Producto"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 2].Columns[Cantidad]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Cantidad]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Cantidad]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 2].Columns[PrecioUnitario]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioUnitario"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[PrecioUnitario]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[PrecioUnitario]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 2].Columns[Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Estado"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Estado]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Estado]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 2].Columns[ImporteTotal]"
+                      cachedDataType="numeric"
+                      cachedName="ImporteTotal"
+                      cachedPrecision="23"
+                      cachedScale="2"
+                      lineageId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Output].Columns[ImporteTotal]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[ImporteTotal]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[IdVenta]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[IdVenta]"
+                      name="IdVenta" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[FechaVenta]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[FechaVenta]"
+                      name="FechaVenta" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[IdCliente]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[IdCliente]"
+                      name="IdCliente" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Producto]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Producto]"
+                      name="Producto" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Cantidad]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Cantidad]"
+                      name="Cantidad" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[PrecioUnitario]"
+                      dataType="numeric"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[PrecioUnitario]"
+                      name="PrecioUnitario"
+                      precision="12"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Estado]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Estado]"
+                      name="Estado" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[ImporteTotal]"
+                      dataType="numeric"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[ImporteTotal]"
+                      name="ImporteTotal"
+                      precision="29"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_ImporteTotal]"
+                      dataType="numeric"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_ImporteTotal]"
+                      name="Convert_ImporteTotal"
+                      precision="12"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_IdCliente]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_IdCliente]"
+                      name="Convert_IdCliente" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_Producto]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_Producto]"
+                      name="Convert_Producto" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_Estado]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_Estado]"
+                      name="Convert_Estado" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_FechaVenta]"
+                      dataType="date"
+                      lineageId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1].Columns[Convert_FechaVenta]"
+                      name="Convert_FechaVenta" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Ventas csv\VENTAS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="VENTAS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Venta]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Ventas csv\VENTAS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MILER.BD_NET]"
+                  connectionManagerRefId="Package.ConnectionManagers[MILER.BD_NET]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].Columns[IdVenta]"
+                      cachedDataType="i4"
+                      cachedName="IdVenta"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[IdVenta]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdVenta]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].Columns[Cantidad]"
+                      cachedDataType="i4"
+                      cachedName="Cantidad"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[Cantidad]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Cantidad]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].Columns[PrecioUnitario]"
+                      cachedDataType="numeric"
+                      cachedName="PrecioUnitario"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[PrecioUnitario]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[PrecioUnitario]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].Columns[Convert_FechaVenta]"
+                      cachedDataType="date"
+                      cachedName="Convert_FechaVenta"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[FechaVenta]"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_FechaVenta]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].Columns[Convert_IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Convert_IdCliente"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[IdCliente]"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_IdCliente]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].Columns[Convert_Producto]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Convert_Producto"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[Producto]"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_Producto]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].Columns[Convert_Estado]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Convert_Estado"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[Estado]"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_Estado]" />
+                    <inputColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].Columns[Convert_ImporteTotal]"
+                      cachedDataType="numeric"
+                      cachedName="Convert_ImporteTotal"
+                      cachedPrecision="12"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[ImporteTotal]"
+                      lineageId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output].Columns[Convert_ImporteTotal]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[IdVenta]"
+                      dataType="i4"
+                      name="IdVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[FechaVenta]"
+                      dataType="dbTimeStamp"
+                      name="FechaVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[IdCliente]"
+                      dataType="wstr"
+                      length="10"
+                      name="IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[Producto]"
+                      dataType="wstr"
+                      length="100"
+                      name="Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[Cantidad]"
+                      dataType="i4"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[PrecioUnitario]"
+                      dataType="numeric"
+                      name="PrecioUnitario"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="20"
+                      name="Estado" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input].ExternalColumns[ImporteTotal]"
+                      dataType="numeric"
+                      name="ImporteTotal"
+                      precision="12"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Ventas csv\VENTAS.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\VENTAS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\VENTAS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\VENTAS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Ventas csv\Ventas csv"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="10250"
+              name="Ventas csv"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Ventas csv\Ventas csv.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Ventas.csv]"
+                  connectionManagerRefId="Package.ConnectionManagers[Ventas.csv]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdVenta]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[IdVenta]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdVenta]"
+                      name="IdVenta"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[FechaVenta]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[FechaVenta]"
+                      length="50"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[FechaVenta]"
+                      name="FechaVenta"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[IdCliente]"
+                      length="10"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[IdCliente]"
+                      name="IdCliente"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Producto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[Producto]"
+                      length="50"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Producto]"
+                      name="Producto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Cantidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[Cantidad]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Cantidad]"
+                      name="Cantidad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[PrecioUnitario]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[PrecioUnitario]"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[PrecioUnitario]"
+                      name="PrecioUnitario"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Estado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[Estado]"
+                      length="20"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].Columns[Estado]"
+                      name="Estado"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[IdVenta]"
+                      dataType="i4"
+                      name="IdVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[FechaVenta]"
+                      dataType="wstr"
+                      length="10"
+                      name="FechaVenta" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[IdCliente]"
+                      dataType="wstr"
+                      length="10"
+                      name="IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[Producto]"
+                      dataType="wstr"
+                      length="50"
+                      name="Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[Cantidad]"
+                      dataType="i4"
+                      name="Cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[PrecioUnitario]"
+                      dataType="numeric"
+                      name="PrecioUnitario"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output].ExternalColumns[Estado]"
+                      dataType="wstr"
+                      length="20"
+                      name="Estado" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Cargar Ventas csv.Paths[Data Conversion Output]"
+              endId="Package\Cargar Ventas csv\Conditional Split.Inputs[Conditional Split Input]"
+              name="Data Conversion Output"
+              startId="Package\Cargar Ventas csv\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Cargar Ventas csv.Paths[Derived Column Output]"
+              endId="Package\Cargar Ventas csv\MATCH ID.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Cargar Ventas csv\IMPORTE TOTAL.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Cargar Ventas csv.Paths[Derived Column Output1]"
+              endId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\Cargar Ventas csv\RECHAZADOS.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Cargar Ventas csv.Paths[Flat File Source Output]"
+              endId="Package\Cargar Ventas csv\IMPORTE TOTAL.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Cargar Ventas csv\Ventas csv.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Cargar Ventas csv.Paths[Lookup Match Output]"
+              endId="Package\Cargar Ventas csv\Data Conversion.Inputs[Data Conversion Input]"
+              name="Lookup Match Output"
+              startId="Package\Cargar Ventas csv\MATCH ID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Cargar Ventas csv.Paths[Lookup No Match Output]"
+              endId="Package\Cargar Ventas csv\RECHAZADOS.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Cargar Ventas csv\MATCH ID.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Cargar Ventas csv.Paths[no_valido]"
+              endId="Package\Cargar Ventas csv\Union All.Inputs[Union All Input 1]"
+              name="no_valido"
+              startId="Package\Cargar Ventas csv\Conditional Split.Outputs[no_valido]" />
+            <path
+              refId="Package\Cargar Ventas csv.Paths[OLE DB Destination Error Output]"
+              endId="Package\Cargar Ventas csv\LOG ERROR.Inputs[OLE DB Destination Input]"
+              name="OLE DB Destination Error Output"
+              startId="Package\Cargar Ventas csv\VENTAS.Outputs[OLE DB Destination Error Output]" />
+            <path
+              refId="Package\Cargar Ventas csv.Paths[Union All Output 1]"
+              endId="Package\Cargar Ventas csv\Revisar csv.Inputs[Flat File Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Cargar Ventas csv\Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\Cargar Ventas csv.Paths[valido]"
+              endId="Package\Cargar Ventas csv\VENTAS.Inputs[OLE DB Destination Input]"
+              name="valido"
+              startId="Package\Cargar Ventas csv\Conditional Split.Outputs[valido]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Cargar Ventas csv"
+          TopLeft="330,177" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Cargar Ventas csv">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Cargar Ventas csv\Ventas csv"
+          TopLeft="185,13.3333333333333" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Cargar Ventas csv\IMPORTE TOTAL"
+          TopLeft="170.222222222222,111" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Cargar Ventas csv\Union All"
+          TopLeft="564.666666666667,517.666666666667" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Cargar Ventas csv\RECHAZADOS"
+          TopLeft="648.222222222222,207" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Cargar Ventas csv\MATCH ID"
+          TopLeft="333.222222222222,205" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Cargar Ventas csv\Data Conversion"
+          TopLeft="325.833333333333,302.611111111111" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Cargar Ventas csv\Conditional Split"
+          TopLeft="324.222222222222,407" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Cargar Ventas csv\Revisar csv"
+          TopLeft="558,616.333333333333" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Cargar Ventas csv\VENTAS"
+          TopLeft="321.555555555555,527.555555555555" />
+        <EdgeLayout
+          Id="Package\Cargar Ventas csv.Paths[valido]"
+          TopLeft="380.805555555556,449">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78.5555555555553"
+              Start="0,0"
+              End="0,71.0555555555553">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.0555555555553" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.73103515625,30.6532660590277,27.4620703125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar Ventas csv.Paths[Union All Output 1]"
+          TopLeft="626.083333333333,559.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.6666666666666"
+              Start="0,0"
+              End="0,49.1666666666666">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.1666666666666" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar Ventas csv.Paths[no_valido]"
+          TopLeft="428.888888888889,449">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="178.111111111111,68.6666666666667"
+              Start="0,0"
+              End="178.111111111111,61.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2104766164704" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.2104766164704"
+                    Point2="0,34.2104766164704"
+                    Point3="4,34.2104766164704" />
+                  <mssgle:LineSegment
+                    End="174.111111111111,34.2104766164704" />
+                  <mssgle:CubicBezierSegment
+                    Point1="174.111111111111,34.2104766164704"
+                    Point2="178.111111111111,34.2104766164704"
+                    Point3="178.111111111111,38.2104766164704" />
+                  <mssgle:LineSegment
+                    End="178.111111111111,61.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="67.4069032118056,39.2104766164704,43.2973046875,11.0625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar Ventas csv.Paths[Lookup No Match Output]"
+          TopLeft="465.222222222222,227">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="183,0"
+              Start="0,0"
+              End="175.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="175.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="31.94361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar Ventas csv.Paths[Lookup Match Output]"
+          TopLeft="402.777777777778,247">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.6111111111111"
+              Start="0,0"
+              End="0,48.1111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.1111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,18.2508680555555,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar Ventas csv.Paths[Flat File Source Output]"
+          TopLeft="252.611111111111,55.3333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.6666666666667"
+              Start="0,0"
+              End="0,48.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar Ventas csv.Paths[Derived Column Output1]"
+          TopLeft="725.722222222222,249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-80.3888888888889,268.666666666667"
+              Start="0,0"
+              End="-80.3888888888889,261.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,155.130016051364" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,155.130016051364"
+                    Point2="0,159.130016051364"
+                    Point3="-4,159.130016051364" />
+                  <mssgle:LineSegment
+                    End="-76.3888888888889,159.130016051364" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-76.3888888888889,159.130016051364"
+                    Point2="-80.3888888888889,159.130016051364"
+                    Point3="-80.3888888888889,163.130016051364" />
+                  <mssgle:LineSegment
+                    End="-80.3888888888889,261.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar Ventas csv.Paths[Derived Column Output]"
+          TopLeft="253.722222222222,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="145.5,52"
+              Start="0,0"
+              End="145.5,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="4,26" />
+                  <mssgle:LineSegment
+                    End="141.5,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="141.5,26"
+                    Point2="145.5,26"
+                    Point3="145.5,30" />
+                  <mssgle:LineSegment
+                    End="145.5,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Cargar Ventas csv.Paths[Data Conversion Output]"
+          TopLeft="405.027777777778,344.611111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.3888888888889"
+              Start="0,0"
+              End="0,54.8888888888889">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.8888888888889" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,19.4444444444445,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Cargar Ventas csv\LOG ERROR"
+          TopLeft="22.2222222222223,521.111111111111" />
+        <EdgeLayout
+          Id="Package\Cargar Ventas csv.Paths[OLE DB Destination Error Output]"
+          TopLeft="321.555555555555,545.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-154.333333333333,0"
+              Start="0,0"
+              End="-146.833333333333,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-146.833333333333,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-146.625572916667,5,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar Ventas csv\MATCH ID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Cliente]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar Ventas csv\VENTAS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar Ventas csv\LOG ERROR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
